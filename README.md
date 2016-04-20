@@ -1,27 +1,30 @@
 <img src="https://devmounta.in/img/logowhiteblue.png" width="250" align="right">
 
-NbaRoutes
+Raining Catz and Dogz
 =========
 
 ##Objective
-Create an Angular application that uses routes navigate through a list of NBA teams
+Create an Angular application that uses routes navigate through a list of Catz and Dogz
 
-NBA Routes is the first exposure you'll get to building a full fledged app with more than just one 'route'. Take a look at the full working version of the app [here](http://tylermcginnis.github.io/nbaRoutes). Notice that every route, whether it's the home page or individual team pages, all are retrieving  data before the route loads by using a **resolve**.
+Raining Catz and Dogz is the first exposure you'll get to building a full fledged app with more than just one 'route'. Take a look at the full working version of the app [here](********fix this!!!!******)
+******************Notice that every route, whether it's the home page or the dogz/catz pages, all are retrieving  data before the route loads by using a **resolve**.*******************
 
-In this repo you'll continue to practice fundamental Angular principles you've learned like controllers, services, promises and getting data from RESTful API's while also learning new concepts like routing and resolving data.
+In this repo you'll continue to practice fundamental Angular principles you've learned like controllers, services, and Angular directives, while also learning new concepts like routing and **********************resolving*****************.
 
 ## Setup
-For this project you're going to need to serve your files through a server
+For this project you're going to need to serve your files through a live-server
 * Fork and clone this repository
-* Open up your terminal and (if you have Node/NPM) run
+* Open up your terminal and run
   `npm install -g live-server`
 * Now once you want to check out your code, cd into your folder and run
   `live-server`
   The line after should print out: `Starting ... at http://127.0.0.1:8080`
-* Go to http://localhost:8080. You should see the beginnings of your application.
+* Go to http://localhost:8080 in your browser. You should see the beginnings of your application.
+**Note** If your text editor supports its own live-server package, install the package and run live-server directly from your editor.
 
 
 ## Step 1: Review the Existing Repo Code
+******************TBD*********************
 A few things have been included for you
 * images
 * defaultHeaders.js -- makes parse work
