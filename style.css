@@ -37,7 +37,7 @@ img {
 }
 
 .main-container {
-  width: 601px;
+  width: 625px;
   margin: auto;
   text-align: center;
 }
@@ -45,4 +45,15 @@ img {
 .dogs, .cats {
   float: left;
   text-align: center;
+  padding: 5px;
+}
+
+.allCats, .allDogs {
+  margin: 10px auto;
+  width: max-content;
+  padding: 10px;
+}
+
+.dogs:hover, .cats:hover, .allCats:hover {
+  border: 2px solid #8d8d8d;
 }

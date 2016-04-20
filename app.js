@@ -7,19 +7,23 @@ angular.module('rainingCatzAndDogz', ['ui.router'])
   })
   .state('catz',{
     url:'/catz',
-    template: "<h2>Catz!</h2>"
+    controller: 'catCtrl',
+    templateUrl: "./templates/catzTemp.html"
   })
   .state('dogz',{
     url:'/dogz',
-    template: "<h2>Dogz!</h2>"
+    controller: 'dogCtrl',
+    templateUrl: "./templates/dogzTemp.html"
   })
   .state('catbyid',{
     url:'/catz/:catId',
-    template: "<h2>That Cat</h2>"
+    controller: 'catCtrl',
+    templateUrl: "./templates/thatCatTemp.html"
   })
   .state('dogbyid',{
     url:'/dogz/:dogId',
-    template: "<h2>That Dog</h2>"
+    controller: 'dogCtrl',
+    templateUrl: "./templates/thatDogTemp.html"
   });
 
   $urlRouterProvider
