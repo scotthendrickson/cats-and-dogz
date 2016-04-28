@@ -1,18 +1,17 @@
-## Angular Friends
+## Catz And Dogz
 
 ### Introduction
 
 ####
-<img src="https://devmounta.in/img/logowhiteblue.png" width="250" align="right">
-
 ##### Objective
 Create an Angular application that uses routes to navigate through a list of Cats and Dogs.
 
-Raining Catz and Dogz is the first exposure you'll get to building a full fledged app with more than just one 'route'. Take a look at the full working version of the app [here](http://www.catzanddogz.nickmarucci.com/)
+Raining Catz and Dogz is the first exposure you'll get to building a full fledged app with more than just one 'route'. Take a look at the full working version of the app [here](http://www.catzanddogz.nickmarucci.com/).
 
+##### About
 Notice that the app starts at the home page, and is linked to both of the cats and dogs pages using ui-router. Also, notice that within each of the cats and dogs pages, you are able to access the individual cats and dogs on new state views.
 
-In this repo you'll continue to practice fundamental Angular principles you've learned like controllers, services, and Angular directives.
+In this repo, you'll continue to practice fundamental Angular principles you've learned like controllers, services, and Angular directives.
 
 ### Setup
 For this project you're going to need to serve your files through a live-server
@@ -27,7 +26,7 @@ For this project you're going to need to serve your files through a live-server
 **Note** If your text editor supports its own live-server package, install the package and run live-server directly from your editor.
 
 
-### Step 1: Review the Existing Repo Code
+### Review the Existing Repo Code
 A few things have been included for you
 * images
 * services - We have provided all of the necessary cat and dog data for you.
@@ -52,7 +51,7 @@ The &lt;ui-view></ui-view&gt; element and it's placement is crucial to understan
 
 Once you feel VERY comfortable with the existing codebase, move on to Step 2.
 
-#### Start to Configure the Router
+### Start to Configure the Router
 By setting up the router, we are telling our app which options it has in terms of which views we can see based on url, and what contents are related to those views such as our html templates or controllers.
 * In your app.js file, create a new state called `'catz'` in your router, so that whenever the user is at the index page `'/catz'`, the templateUrl will be `./templates/catzTemp.html` and the controller will be `'catCtrl'`.
 * Now do the same for the `dogz` route, and both individual `catz/:id` and `dogz/:id` routes. Go ahead and use the same controller for the `catz` and `catz:id` routes, annd the same for the `dogz` and `dogz:id` routes.
