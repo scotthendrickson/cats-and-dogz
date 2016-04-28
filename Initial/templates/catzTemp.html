@@ -1,0 +1,9 @@
+<div class="allContainer">
+  <h2>Catz!</h2>
+  <p>Here is a list of all of the catz. Select a cat to learn more about it.</p>
+
+  <div class="allCats" ng-repeat="cat in allCats">
+    <a ng-click="getCat()" ui-sref="catbyid({catId: cat.breed})">
+      <h2>{{cat.breed}}</h2><img src="{{cat.image}}" alt="" /></a>
+  </div>
+</div>
