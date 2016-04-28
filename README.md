@@ -1,7 +1,6 @@
 <img src="https://devmounta.in/img/logowhiteblue.png" width="250" align="right">
 
 Raining Catz and Dogz
-=========
 
 ##Objective
 Create an Angular application that uses routes to navigate through a list of Cats and Dogs.
@@ -93,6 +92,8 @@ Now is the fun part. If everything is working correctly, our team controller and
 
 ## Step 5: Configure the Home Page.
 Go back and check out the live example at http://tylermcginnis.github.io/nbaRoutes . Notice that each team has their own URL in the menu but also the home page is taking all three teams and comparing them side by side. Your job is to now make that possible. You'll need to edit the files in the 'home' folder and also your router in app.js to make it work as expected.
+=======
+The purpose of this project is to provide students with practice on Angular Views and certain Angular directives, like ng-model and ng-repeat.
 
 ## Contributions
 If you see a problem or a typo, please fork, make the necessary changes, and create a pull request so we can review your changes and merge them into the master repo and branch.
