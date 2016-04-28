@@ -14,6 +14,8 @@ Notice that the app starts at the home page, and is linked to both of the cats a
 In this repo, you'll continue to practice fundamental Angular principles you've learned like controllers, services, and Angular directives.
 
 ### Setup
+####
+
 For this project you're going to need to serve your files through a live-server
 * Fork and clone this repository[here](https://github.com/DevMountain/catz-and-dogz)
 * Open up your terminal and run
@@ -27,6 +29,8 @@ For this project you're going to need to serve your files through a live-server
 
 
 ### Review the Existing Repo Code
+####
+
 A few things have been included for you
 * images
 * services - We have provided all of the necessary cat and dog data for you.
@@ -52,6 +56,8 @@ The &lt;ui-view></ui-view&gt; element and it's placement is crucial to understan
 Once you feel VERY comfortable with the existing codebase, move on to Step 2.
 
 ### Start to Configure the Router
+####
+
 By setting up the router, we are telling our app which options it has in terms of which views we can see based on url, and what contents are related to those views such as our html templates or controllers.
 * In your app.js file, create a new state called `'catz'` in your router, so that whenever the user is at the index page `'/catz'`, the templateUrl will be `./templates/catzTemp.html` and the controller will be `'catCtrl'`.
 * Now do the same for the `dogz` route, and both individual `catz/:id` and `dogz/:id` routes. Go ahead and use the same controller for the `catz` and `catz:id` routes, annd the same for the `dogz` and `dogz:id` routes.
@@ -71,6 +77,8 @@ By setting up the router, we are telling our app which options it has in terms o
 
 
 ### Configure the teamCtrl.js File
+####
+
 * Head over to your teamCtrl.js file. We should have four things that are being injected into the controller. `$scope`, `$stateParams` (to give us access to `:team` in the url), `teamService`, and `teamData`. `teamData` hasn't been injected for you yet. teamData is from the previous step. It gives us the data that is being returned from `teamService.getData` in our resolve block in the `app.js` file.
 * First thing we want to do is get the data (`teamData`) that is being resolved in our app.js file and put that data on the scope. So in your controller, set `teamData` equal to `$scope.teamData`. Now that data is on our scope and can be accessed in the view.
 * Now create a property on the `$scope` object called `newGame` and set it equal to an empty object. This is the object that is going to be passed to `teamService.addNewGame` method later on.
@@ -92,18 +100,25 @@ Now we want to create a method on our scope object that will be called whenever 
 
 
 ### Set up for teamTmpl file
+####
+
 Now is the fun part. If everything is working correctly, our team controller and team service should be set up and now all we need to do is put that data onto the view. Head over to your teamTmpl.html file and check it out.
 * Notice that there are a lot of `$__FIXME__$`. All of those need to be filled in with properties that are on the teamCtrl. This could be really hard or really easy depending on how you tackle the problem. If it were me, I would console.log the $scope object to see all the properties that you're able to use.
 * Fill in all the `$__FIXME__$` with the correct models. Once you do that, make sure you have live-server running and head over to localhost:8080/#/teams/utahjazz and see if everything is working as expected. If it is, great. If not, open up your console and start debugging.
 
 
 ### Finish styling and configuring the app.
+####
+
 Go back and check out the live example [here](http://www.catzanddogz.nickmarucci.com/).
 Finish up and styling or configuration that may be remaining.
 =======
 The purpose of this project is to provide students with practice on Angular Views and certain Angular directives, like ng-model and ng-repeat.
 
 ### Black Diamond
+####
+
+
 If you need more practice, try to link up to the PetFinder API to get more animals listed. Use a service and do an $http request for more pets. Add more views and templates if necessary.
 
 
