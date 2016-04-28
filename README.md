@@ -1,8 +1,8 @@
 <img src="https://devmounta.in/img/logowhiteblue.png" width="250" align="right">
 
-Raining Catz and Dogz
+##Raining Catz and Dogz
 
-##Objective
+#####Objective
 Create an Angular application that uses routes to navigate through a list of Cats and Dogs.
 
 Raining Catz and Dogz is the first exposure you'll get to building a full fledged app with more than just one 'route'. Take a look at the full working version of the app [here](http://www.catzanddogz.nickmarucci.com/)
@@ -11,7 +11,7 @@ Notice that the app starts at the home page, and is linked to both of the cats a
 
 In this repo you'll continue to practice fundamental Angular principles you've learned like controllers, services, and Angular directives.
 
-## Setup
+#### Setup
 For this project you're going to need to serve your files through a live-server
 ********************************************
 * Fork and clone this repository
@@ -26,7 +26,7 @@ For this project you're going to need to serve your files through a live-server
 **Note** If your text editor supports its own live-server package, install the package and run live-server directly from your editor.
 
 
-## Step 1: Review the Existing Repo Code
+#### Step 1: Review the Existing Repo Code
 A few things have been included for you
 * images
 * services - We have provided all of the necessary cat and dog data for you.
@@ -51,7 +51,7 @@ The &lt;ui-view></ui-view&gt; element and it's placement is crucial to understan
 
 Once you feel VERY comfortable with the existing codebase, move on to Step 2.
 
-## Step 2: Start to Configure the Router
+#### Step 2: Start to Configure the Router
 As I mentioned in step 1, setting up the router is perhaps the most important part of this entire application. Our router is going to decide which template and controller get used based on what URL we're currently on.
 * Open up your app.js file. Create a state called `'home'` in your router, so that whenever the user is at the index page `'/'`, the templateUrl will be `js/home/homeTmpl.html` and the controller `'homeCtrl'`. We will complete the rest of this route a little later.
 * Now we're going to set up the individual team's routes. It's important to understand that all three teams (Jazz, Lakers, Heat) are going to be using the same Controller and the same Template.
@@ -63,7 +63,7 @@ As I mentioned in step 1, setting up the router is perhaps the most important pa
 * Let's make one last change to the router for now. Add a `$urlRouterProvider.otherwise('/');` block so that the router will redirect to the index page if the route the user types in is not recognized.
 
 
-## Step 3: Configure the teamCtrl.js File
+#### Step 3: Configure the teamCtrl.js File
 * Head over to your teamCtrl.js file. We should have four things that are being injected into the controller. `$scope`, `$stateParams` (to give us access to `:team` in the url), `teamService`, and `teamData`. `teamData` hasn't been injected for you yet. teamData is from the previous step. It gives us the data that is being returned from `teamService.getData` in our resolve block in the `app.js` file.
 * First thing we want to do is get the data (`teamData`) that is being resolved in our app.js file and put that data on the scope. So in your controller, set `teamData` equal to `$scope.teamData`. Now that data is on our scope and can be accessed in the view.
 * Now create a property on the `$scope` object called `newGame` and set it equal to an empty object. This is the object that is going to be passed to `teamService.addNewGame` method later on.
@@ -84,13 +84,13 @@ Now we want to create a method on our scope object that will be called whenever 
 * Now we want to set a few properties on our scope based off the data we got from our promise. First, set `$scope.teamData` equal to the data you got back from the promise. Then, reset `$scope.newGame` to be an empty object, then set `$scope.showNewGameForm` back to `false`.
 
 
-## Step 4: Set up for teamTmpl file
+#### Step 4: Set up for teamTmpl file
 Now is the fun part. If everything is working correctly, our team controller and team service should be set up and now all we need to do is put that data onto the view. Head over to your teamTmpl.html file and check it out.
 * Notice that there are a lot of `$__FIXME__$`. All of those need to be filled in with properties that are on the teamCtrl. This could be really hard or really easy depending on how you tackle the problem. If it were me, I would console.log the $scope object to see all the properties that you're able to use.
 * Fill in all the `$__FIXME__$` with the correct models. Once you do that, make sure you have live-server running and head over to localhost:8080/#/teams/utahjazz and see if everything is working as expected. If it is, great. If not, open up your console and start debugging.
 
 
-## Step 5: Configure the Home Page.
+#### Step 5: Configure the Home Page.
 Go back and check out the live example at http://tylermcginnis.github.io/nbaRoutes . Notice that each team has their own URL in the menu but also the home page is taking all three teams and comparing them side by side. Your job is to now make that possible. You'll need to edit the files in the 'home' folder and also your router in app.js to make it work as expected.
 =======
 The purpose of this project is to provide students with practice on Angular Views and certain Angular directives, like ng-model and ng-repeat.
