@@ -4,71 +4,55 @@ Raining Catz and Dogz
 =========
 
 ##Objective
-Create an Angular application that uses routes navigate through a list of Catz and Dogz
+Create an Angular application that uses routes to navigate through a list of Cats and Dogs.
 
-Raining Catz and Dogz is the first exposure you'll get to building a full fledged app with more than just one 'route'. Take a look at the full working version of the app [here](********fix this!!!!******)
-******************Notice that every route, whether it's the home page or the dogz/catz pages, all are retrieving  data before the route loads by using a **resolve**.*******************
+Raining Catz and Dogz is the first exposure you'll get to building a full fledged app with more than just one 'route'. Take a look at the full working version of the app [here](http://www.catzanddogz.nickmarucci.com/)
 
-In this repo you'll continue to practice fundamental Angular principles you've learned like controllers, services, and Angular directives, while also learning new concepts like routing and **********************resolving*****************.
+Notice that the app starts at the home page, and is linked to both of the cats and dogs pages using ui-router. Also, notice that within each of the cats and dogs pages, you are able to access the individual cats and dogs on new state views.
+
+In this repo you'll continue to practice fundamental Angular principles you've learned like controllers, services, and Angular directives.
 
 ## Setup
 For this project you're going to need to serve your files through a live-server
+********************************************
 * Fork and clone this repository
+**********************************************
 * Open up your terminal and run
   `npm install -g live-server`
-* Now once you want to check out your code, cd into your folder and run
+* When you are ready, cd into your folder and run
   `live-server`
   The line after should print out: `Starting ... at http://127.0.0.1:8080`
-* Go to http://localhost:8080 in your browser. You should see the beginnings of your application.
+* Go to http://localhost:8080 in your browser. You should see the initial state of your application.
+
 **Note** If your text editor supports its own live-server package, install the package and run live-server directly from your editor.
 
 
 ## Step 1: Review the Existing Repo Code
-******************TBD*********************
 A few things have been included for you
 * images
-* defaultHeaders.js -- makes parse work
-* ['ui.router'] as a dependency for our module in app.js
+* services - We have provided all of the necessary cat and dog data for you.
+* index.html - The structure of the page and CDN's have been provided.
+* style.css
+* app.js - Only the home state has been provided. It will be up to you to determine what else is necessary.
+* thatDogTemp.html - The html template for the home page has been provided to you.
 
 Take a look at how the routes are broken into folders. This is a very easy way to keep things modular!
-* 'js/home' folder -- files that all have to do with the home (or index) page
-  - view (.html file), controller, and service
-* 'js/teams' folder -- files that will be utilized for teams route
-  - view (.html file), controller, and service
+* 'services/' folder -- stores all of our associated service.js files
+* 'templates/' folder -- stores all of our associated view.html files
+
+You may need to add a controllers folder.
 
 Check out the index.html page
-* nbaRoutes is included as the name of our app
-* mainCtrl is included and associated with everything in the main-container
-* a menu is created that's going to be at the top of the page for every route
+* rainingCatzAndDogz is included as the name of our app
+* a navigation menu has been created that's going to be at the top of the page for every route - Alos notice that they don't do anything yet.
 * ui-router script tag -- UI Router doesn't come built-in with Angular
-* &lt;div ui-view></div&gt; is included and inside of our index.html
+* &lt;ui-view></ui-view&gt; is included and inside of our index.html
 
-The &lt;div ui-view></div&gt; element and it's placement is crucial to understanding how routing works. That simple &lt;div ui-view></div&gt; holds the power to the universe, or at least the routes inside this app. The router is going to take that element and inject certain templates (html pages) into it depending on which route we're using. The template that is injected into the &lt;div ui-view></div&gt; element depends entirely on what we specify in using the `$stateProvider` object in our app.js file. Creating a router this way allows us to dynamically switch templates and controllers based on the URL.
+The &lt;ui-view></ui-view&gt; element and it's placement is crucial to understanding how routing works. That simple &lt;ui-view></ui-view&gt; holds the power to the  routes inside this app. The router is going to take that element and inject certain templates (html pages) into it depending on which route we're using. The template that is injected into the &lt;ui-view></ui-view&gt; element depends entirely on what we specify in using the `$stateProvider` object in our app.js file. Creating a router this way allows us to dynamically switch templates and controllers based on the URL.
 
 Once you feel VERY comfortable with the existing codebase, move on to Step 2.
 
-
-## Step 2: Configure our teamService.js file
-This app is going to be very dependent on using **resolve** in the router. As we talked about during the lecture, resolve will call a method in our service, wait for that method's promise to be resolved, then make the data being returned from that service's method available immediately in our controller.
-* In your teamService.js file make a method called `addNewGame`. This method is going to take in a gameObject as the parameter. That gameObj will eventually have data about each individual game that we'll send to parse.
-  - In the addNewGame method create a variable called `url` and set it equal to `'https://api.parse.com/1/classes/' + gameObj.homeTeam;`. Notice each team's games are going to be stored at a RESTful endpoint which points to the teams specific name (gameObj.homeTeam).
-  - After creating the url variable, make an if statement that is going to check to see if the home team score (gameObj.homeTeamScore) is greater then the opponents core (gameObj.opponentScore). If it is, set a property called 'won' on the gameObj to true. If it is not, (or if the home team lost), set that win property on the gameObj to false. One gotcha here is that gameObj.homeTeamScore and gameObj.opponentScore are both strings, you'll need to make them integers before you compare them. To do that, use the parseInt method. `parseInt("7")` will return 7 the integer.
-  - Under your if statement, we're going make a POST request to parse to our URL we made earlier, sending `gameObj` as the data. So, return the result of making an $http request with the 'method' of 'POST', the 'url' being the URL variable we made earlier, and 'data' being our `gameObj`.
-* Now that our service has an addNewGame method, let's make a `getTeamData` method which is going to accept a team parameter and fetch the data of that specific team. Create it and have it accept a parameter named team.
-  - Create a deferred object using $q.defer(); then at the bottom of that function return that promise object (deferred.promise)
-  - Create a variable called `url` which will be set to `'https://api.parse.com/1/classes/' + team;`
-  - Now, make a 'GET' request using $http to the url of the variable we just made.
-  - We're not going to return that object but instead we're going to modify the data we got back from that request before we resolve our own promise we made earlier. So add a `.then` to the end of the $http request and give `.then` a function that accepts 'data' as the parameter. Remember, `data` will be the actual data we get back from parse when we make a GET request to the specified URL we made earlier.
-    * Inside the `.then` function, make a variable called `results` and set it equal to `data.data.results`, which is the actual games the team has played.
-    * Create two variables, one called `wins` and one called `losses` and set them both equal to `0`.
-    * Loop over `results` (which is an array of game objects) and check the `.won` property on each object in the `results` array, if the `.won` property is true, increment wins by 1. If `.won` is not true, increment losses by 1. Now what we've done is gone through all of the games and we now know how many wins and losses that team has.
-    * Now that we have complete wins and losses variables, we need to somehow access those variables outside of our service. We know that we have a results array which holds an array of all the games the particular team has played. What if we do something a little unconventional here. We know we're going to eventually resolve our promise we made earlier with the results variable (so we can access all the games in our controller). We also know that an array is really just an object at heart. Let's add a 'wins' property to the results array and set it equal to our wins variable and let's also set a 'losses' property on our results array and set it equal to our losses variable. I know this is a little weird because we're not adding items to our array like we usually do but instead we're adding properties to this array. It's a good reminder that arrays are just objects. Once you add the wins and losses property, go ahead and resolve our deferred object we made earlier with our results array.
-  - Make sure that our getTeamData method has a return! Because we are modifying the data we receive from api.parse.com before resolving it, we will need to return the promise on the deferred object rather than returning the $http call like we did in our addNewGame method.
-
-Now that we've set up those two methods on our teamService object, we can close teamService. We won't need to modify this file again but we will need to call the methods we set up in teamService.js later.
-
-
-## Step 3: Start to Configure the Router
+## Step 2: Start to Configure the Router
 As I mentioned in step 1, setting up the router is perhaps the most important part of this entire application. Our router is going to decide which template and controller get used based on what URL we're currently on.
 * Open up your app.js file. Create a state called `'home'` in your router, so that whenever the user is at the index page `'/'`, the templateUrl will be `js/home/homeTmpl.html` and the controller `'homeCtrl'`. We will complete the rest of this route a little later.
 * Now we're going to set up the individual team's routes. It's important to understand that all three teams (Jazz, Lakers, Heat) are going to be using the same Controller and the same Template.
@@ -80,7 +64,7 @@ As I mentioned in step 1, setting up the router is perhaps the most important pa
 * Let's make one last change to the router for now. Add a `$urlRouterProvider.otherwise('/');` block so that the router will redirect to the index page if the route the user types in is not recognized.
 
 
-## Step 4: Configure the teamCtrl.js File
+## Step 3: Configure the teamCtrl.js File
 * Head over to your teamCtrl.js file. We should have four things that are being injected into the controller. `$scope`, `$stateParams` (to give us access to `:team` in the url), `teamService`, and `teamData`. `teamData` hasn't been injected for you yet. teamData is from the previous step. It gives us the data that is being returned from `teamService.getData` in our resolve block in the `app.js` file.
 * First thing we want to do is get the data (`teamData`) that is being resolved in our app.js file and put that data on the scope. So in your controller, set `teamData` equal to `$scope.teamData`. Now that data is on our scope and can be accessed in the view.
 * Now create a property on the `$scope` object called `newGame` and set it equal to an empty object. This is the object that is going to be passed to `teamService.addNewGame` method later on.
@@ -101,13 +85,13 @@ Now we want to create a method on our scope object that will be called whenever 
 * Now we want to set a few properties on our scope based off the data we got from our promise. First, set `$scope.teamData` equal to the data you got back from the promise. Then, reset `$scope.newGame` to be an empty object, then set `$scope.showNewGameForm` back to `false`.
 
 
-## Step 5: Set up for teamTmpl file
+## Step 4: Set up for teamTmpl file
 Now is the fun part. If everything is working correctly, our team controller and team service should be set up and now all we need to do is put that data onto the view. Head over to your teamTmpl.html file and check it out.
 * Notice that there are a lot of `$__FIXME__$`. All of those need to be filled in with properties that are on the teamCtrl. This could be really hard or really easy depending on how you tackle the problem. If it were me, I would console.log the $scope object to see all the properties that you're able to use.
 * Fill in all the `$__FIXME__$` with the correct models. Once you do that, make sure you have live-server running and head over to localhost:8080/#/teams/utahjazz and see if everything is working as expected. If it is, great. If not, open up your console and start debugging.
 
 
-## Step 6: Configure the Home Page.
+## Step 5: Configure the Home Page.
 Go back and check out the live example at http://tylermcginnis.github.io/nbaRoutes . Notice that each team has their own URL in the menu but also the home page is taking all three teams and comparing them side by side. Your job is to now make that possible. You'll need to edit the files in the 'home' folder and also your router in app.js to make it work as expected.
 
 ## Contributions
