@@ -17,7 +17,7 @@ In this repo, you'll continue to practice fundamental Angular principles you've 
 ####
 
 For this project you're going to need to serve your files through a live-server
-* Fork and clone this repository[here](https://github.com/DevMountain/catz-and-dogz)
+* Fork and clone this repository [here](https://github.com/DevMountain/catz-and-dogz)
 * Open up your terminal and run
   `npm install -g live-server`
 * When you are ready, cd into your folder and run
@@ -31,6 +31,8 @@ For this project you're going to need to serve your files through a live-server
 ### Review the Existing Repo Code
 ####
 
+Take a look at the file structure and files that have been provided to you for this project.
+
 A few things have been included for you
 * images
 * services - We have provided all of the necessary cat and dog data for you.
@@ -39,19 +41,21 @@ A few things have been included for you
 * app.js - Only the home state has been provided. It will be up to you to determine what else is necessary.
 * thatDogTemp.html - The html template for the home page has been provided to you.
 
+####
+
 Take a look at how the routes are broken into folders. This is a very easy way to keep things modular!
 * 'services/' folder -- stores all of our associated service.js files
-* 'templates/' folder -- stores all of our associated view.html files
+* 'templates/' folder -- stores all of our associated view.html files.
 
-You may need to add a controllers folder.
-
-Check out the index.html page
-* rainingCatzAndDogz is included as the name of our app
-* a navigation menu has been created that's going to be at the top of the page for every route - Alos notice that they don't do anything yet.
-* ui-router script tag -- UI Router doesn't come built-in with Angular
+Take a look at the index.html page.
+* `rainingCatzAndDogz` is included as the name of our app.
+* A navigation menu has been created that's going to be at the top of the page for every route - Also, notice that they don't do anything yet. They aren't linked to any views.
+* The ui-router script tag is separate from Angular. It doesn't come built in with Angular
 * &lt;ui-view></ui-view&gt; is included and inside of our index.html
 
-The &lt;ui-view></ui-view&gt; element and it's placement is crucial to understanding how routing works. That simple &lt;ui-view></ui-view&gt; holds the power to the  routes inside this app. The router is going to take that element and inject certain templates (html pages) into it depending on which route we're using. The template that is injected into the &lt;ui-view></ui-view&gt; element depends entirely on what we specify in using the `$stateProvider` object in our app.js file. Creating a router this way allows us to dynamically switch templates and controllers based on the URL.
+####
+
+The &lt;ui-view></ui-view&gt; element and it's placement is crucial to understanding how routing works. The router is going to take that element and inject certain templates (html pages) into it depending on which route we're using. The template that is injected into the &lt;ui-view></ui-view&gt; element depends entirely on what we specify in using the `$stateProvider` object in our app.js file. Creating a router this way allows us to dynamically switch templates and controllers based on the URL.
 
 Once you feel VERY comfortable with the existing codebase, move on to Step 2.
 
@@ -111,8 +115,7 @@ Now is the fun part. If everything is working correctly, our team controller and
 ####
 
 Go back and check out the live example [here](http://www.catzanddogz.nickmarucci.com/).
-Finish up and styling or configuration that may be remaining.
-=======
+
 The purpose of this project is to provide students with practice on Angular Views and certain Angular directives, like ng-model and ng-repeat.
 
 ### Black Diamond
