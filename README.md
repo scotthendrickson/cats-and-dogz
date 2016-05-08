@@ -76,8 +76,10 @@ Go ahead and add the following state views.
 ####
 
 By setting up the router, we are telling our app which options it has in terms of which views we can see based on url, and what contents are related to those views such as our html templates or controllers.
-* In your app.js file, create a new state called `'catz'` in your router, so that whenever the user is at the index page `'/catz'`, the templateUrl will be `./templates/catzTemp.html` and the controller will be `'catCtrl'`.
-* Now do the same for the `dogz` route, and both individual `catz/:catId` and `dogz/:dogId` routes. Go ahead and use the same controller for the `catz` and `catz:catId` routes, and the same for the `dogz` and `dogz:dogId` routes.
+
+In your app.js file, create a new state called `'catz'` in your router, so that whenever the user is at the index page `'/catz'`, the templateUrl will be `./templates/catzTemp.html` and the controller will be `'catCtrl'`.
+
+Now do the same for the `dogz` route, and both individual `catz/:catId` and `dogz/:dogId` routes. Go ahead and use the same controller for the `catz` and `catz:catId` routes, and the same for the `dogz` and `dogz:dogId` routes.
 
 ####
 
@@ -125,10 +127,10 @@ Now that our templates and controllers have been injected into each of the state
 
 Create four new files, which are listed below, and place them in the templates folder.
 
-catzTemp.html
-dogzTemp.html
-thatCatTemp.html
-thatDogTemp.html
+* catzTemp.html
+* dogzTemp.html
+* thatCatTemp.html
+* thatDogTemp.html
 
 ####
 
@@ -147,8 +149,8 @@ Next, go ahead and create a controller both for the cats and for the dogs.
 
 Create two new files, which are listed below, and place them in the controllers folder.
 
-catCtrl.js
-dogCtrl.js
+* catCtrl.js
+* dogCtrl.js
 
 ####
 
