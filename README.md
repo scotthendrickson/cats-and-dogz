@@ -89,7 +89,8 @@ Now do the same for the `dogz` route, and both individual `catz/:catId` and `dog
 
 When you are done, your code should look something like this. Make sure you create controllers for both of the cats and dogs. Be sure to organize them in a controllers folder and link them in a script tag at the bottom of your html file.
 
-`$stateProvider
+```
+$stateProvider
 .state('home',{
   url:'/',
   templateUrl: "./templates/homeTemp.html"
@@ -116,7 +117,8 @@ When you are done, your code should look something like this. Make sure you crea
 });
 
 $urlRouterProvider
-.otherwise('/');`
+.otherwise('/');
+```
 
 ### Setup the templates
 ####
