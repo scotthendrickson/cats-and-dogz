@@ -39,7 +39,7 @@ A few things have been included for you
 * index.html - The structure of the page and CDN's have been provided.
 * style.css
 * app.js - Only the home state has been provided. It will be up to you to determine what else is necessary. Also, note that the $urlRouterProvider has already been configured to go to the homepage as a default.
-* thatDogTemp.html - The html template for the home page has been provided to you.
+* homeTemp.html - The html template for the home page has been provided to you.
 
 ####
 
@@ -80,8 +80,6 @@ By setting up the router, we are telling our app which options it has in terms o
 In your app.js file, create a new state called `'catz'` in your router, so that whenever the user is at the index page `'/catz'`, the templateUrl will be `./templates/catzTemp.html` and the controller will be `'catCtrl'`.
 
 Now do the same for the `dogz` route, and both individual `catz/:catId` and `dogz/:dogId` routes. Go ahead and use the same controller for the `catz` and `catz:catId` routes, and the same for the `dogz` and `dogz:dogId` routes.
-
-####
 
 * Take note of the /:catId and /:dogId that's in the URL for the individual cats and dogs. Remember, that makes it so your application is able to keep track of certain states based on which animal is located in the URL. For example, when the user visits yourSiteDomain.com/dogz/Bulldog, in our controller $stateParams.dogId is going to be equal to 'Bulldog'. This allows us to display just the Bulldog data when we pass through our dog data in the dog service file.
 
@@ -140,7 +138,9 @@ For the catzTemp.html and dogzTemp.html files, setup some html structure to disp
 
 For the thatCatTemp.html and thatDogTemp.html files, setup your html structure similarly but display the individual animal content, such as breed, image, activity, affection, and the description. And also, feel free to use filler content for this step.
 
-Go ahead to your browser and test your content. Now that we have created templates that are linked to the state config, we should be able to see them appear when the url has an appropriate extension. In the url add the file extensions in to ensure that your views are displaying as expected.
+Go ahead to your browser and test your content. Now that we have created templates that are linked to the state config, we should be able to see them appear when the url has an appropriate extension. For example use the following url extension to test the dogz page : http://localhost:8080/#/dogz.
+
+If everything works correctly, go through the index.html file and the template files, and add any ui-sref attributes that would be necessary to connect to the different views.
 
 ### Setup the cat and dog controllers
 ####
@@ -156,7 +156,7 @@ Create two new files, which are listed below, and place them in the controllers 
 
 ####
 
-Make sure that $scope and catServ or dogServ are injected into each of the controllers. And before we get started, let's make sure that the controllers have been connected to your state config appropriately.
+Make sure that $scope and catServ or dogServ are injected into each of the controllers. And before we get started, let's make sure that the controllers have been added to your index.html in a script source tag.
 
 Create a test variable in your controller called $scope.test and give it some value. In the associated template file that you created in the last step, put {{test}} somewhere in the file. Make sure that the value that you gave to $scope.test pops up on the view.
 
@@ -166,19 +166,35 @@ In this case, we want to gain access to the cats and dogs data that are present 
 
 Go ahead and delete the test variables you made and create new $scope variables that are accessible in the html view and associate them with the data that was pulled from the service files.
 
-In your templates, go ahead and replace your filler data with two way binding variables that will display the information that is needed. Also, for the catz view and the dogz view, create an ng-repeat to repeat over all of the values in the allCats and allDogs arrays.
+In your templates, go ahead and replace your filler data with two way binding variables that will display the information that is needed. Also, for the catz and dogz views, create an ng-repeat to repeat over all of the values in the allCats and allDogs arrays. Make sure you include the appropriate ui-sref's to link into the specific animals. For example, use the following format to link to the specific cat view by breed.
 
-If everything tests correctly, you should see all of the cats and dogs show up in the `/catz` state and `/dogz` state.
+`ui-sref="catbyid({catId: cat.breed})`
 
-****************************************
+If everything tests correctly, you should see all of the cats and dogs show up in the `/catz` state and `/dogz` state. Also, when you select an individual animal, it should take you to the individual cat or dog page.
 
+* Note: The information on the individual cat and dog pages will not display until we configure the data to the specific state by breed.
+
+### Finish the cat and dog controllers to display individual animal information
+
+####
+
+Now that we can see all of the data in the catz and dogz views, we need to setup our controller to manipulate the allDogs and allCats arrays to only show the data for the individual animals, when selected.
+
+####
+
+Let's start by injecting $state into both of our controllers. We will also need to create a scope variable for the individual animal that has been selected. Go ahead and define a new variable, $scope.Cat and $scope.Dog, by giving it an empty string value and placing it at the top of your controllers.
+
+Now, we need to do some data manipulation using JavaScript. In the cat controller, take your allCats array and loop through each cat object using a for loop. Check to see if the cat breed value is equal to the $state.params.catId value. If it is, then set the $scope.Cat value to the entire cat object.
+
+In the thatCatTemp template, replace your filler data with the two way binded values from $scope.Cat. For example, display your cat breed by using `{{Cat.breed}}`. Check to make sure everything works, and then repeat this process in the dog controller and thatDogTemp template.
 
 ### Finish styling and configuring the app.
+
 ####
 
 Go back and check out the live example [here](http://www.catzanddogz.nickmarucci.com/).
 
-The purpose of this project is to provide students with practice on Angular Views and certain Angular directives, like ng-model and ng-repeat.
+Fix any styling or any routing connections that may need improved. Feel free to style the page differently or add features for practice.
 
 ### Black Diamond
 ####
