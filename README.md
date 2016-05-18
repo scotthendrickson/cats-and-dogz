@@ -7,6 +7,7 @@
 Create an Angular application that uses routes to navigate through a list of Cats and Dogs.
 
 Raining Catz and Dogz is the first exposure you'll get to building a full fledged app with more than just one 'route'. Take a look at the full working version of the app [here](http://www.catzanddogz.nickmarucci.com/).
+![alt text](https://github.com/DevMountain/catz-and-dogz/blob/master/preview.png?raw=true, "Catz and Dogz by Nick")
 
 ##### About
 Notice that the app starts at the home page, and is linked to both of the cats and dogs pages using ui-router. Also, notice that within each of the cats and dogs pages, you are able to access the individual cats and dogs on new state views.
