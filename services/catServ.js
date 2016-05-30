@@ -1,5 +1,5 @@
 angular.module("rainingCatzAndDogz").service("catServ", function() {
-  this.allCats = [{
+   var allCats = [{
     breed: "Abyssinian",
     image: "./images/Abyssinian.jpg",
     activity: "High",
@@ -60,4 +60,8 @@ angular.module("rainingCatzAndDogz").service("catServ", function() {
     affection: "High",
     description: "According to the French breed standard, the Sphynx is part monkey, part dog, part child, and part cat. The breed does seem to possess some personality traits of each, despite what geneticists might say about such a combination. To say Sphynxes are lively is an understatement; they perform monkey-like aerialist feats from the top of doorways and bookshelves. Very devoted and loyal, they follow their humans around, wagging their tails doggy fashion and purring with affection. They demand your unconditional attention and are as mischievous (and lovable) as children. And despite all that and their alien appearance, they are completely cats, with all the mystery and charm that has fascinated humankind for thousands of years. While the Sphynx may not be for everyone, his unique appearance and charming temperament has won him an active, enthusiastic following."
   }];
+
+  this.getCats = function(){
+    return allCats;
+  }
 });

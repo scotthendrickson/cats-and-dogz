@@ -1,5 +1,5 @@
 angular.module("rainingCatzAndDogz").service("dogServ", function() {
-  this.allDogs = [{
+  var allDogs = [{
     breed: "Akita",
     image: "./images/Akita.jpg",
     activity: "Moderate-High",
@@ -60,4 +60,8 @@ angular.module("rainingCatzAndDogz").service("dogServ", function() {
     affection: "Moderate-High",
     description: "A delightful blend of dignity and comedy, the pug is an amiable, playful and confident companion. He can be stubborn and headstrong, but he is pleasant and generally willing to please. He loves to cavort and show off."
   }];
+
+  this.getDogs = function(){
+    return allDogs;
+  }
 });

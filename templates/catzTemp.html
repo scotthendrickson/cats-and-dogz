@@ -1,0 +1,8 @@
+<h6>Welcome to the Catz page!</h6>
+<div class='link-container'>
+  <div class='icons' ng-repeat='cat in cats'>
+    <a ui-sref="catzbyid({catId: cat.breed})">
+    <h1>{{cat.breed}}</h1>
+    <img src={{cat.image}}></a>
+  </div>
+</div>

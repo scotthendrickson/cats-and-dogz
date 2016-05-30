@@ -1,0 +1,9 @@
+<h6>Welcome to the Dogz page!</h6>
+</div>
+<div class='link-container'>
+  <div class='icons' ng-repeat='dog in dogs'>
+    <a ui-sref='dogzbyid({dogId: dog.breed})'>
+    <h1>{{dog.breed}}</h1>
+    <img src={{dog.image}}></a>
+  </div>
+</div>
